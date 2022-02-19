@@ -310,17 +310,24 @@ namespace projectimg
             }
         }
         bool visable = true;
+		bool firstload = true;
         private void Form1_Load(object sender, EventArgs e)
-        {
-            this.pictureBox1.Width = pictureBox1.Image.Width;
-            this.pictureBox1.Height = pictureBox1.Image.Height;
-            pictureBox1.Left = (Width / 2) - (pictureBox1.Width / 2);
-            pictureBox1.Top = (Height/ 2) - (pictureBox1.Height / 2);
-
-            label1.Left = (Width / 2) - (label1.Width / 2);
-            label1.Top = pictureBox1.Top + pictureBox1.Height +10;
-
+        { 
+		     pictureBox1.LoadCompleted += new AsyncCompletedEventHandler((object sendere,AsyncCompletedEventArgs fe) => {
+				if(firstload){
+					firstload = false;
+					this.pictureBox1.Width = pictureBox1.Image.Width;
+					this.pictureBox1.Height = pictureBox1.Image.Height;
+					pictureBox1.Left = (Width / 2) - (pictureBox1.Width / 2);
+					pictureBox1.Top = (Height/ 2) - (pictureBox1.Height / 2);
+					label1.Left = (Width / 2) - (label1.Width / 2);
+					label1.Top = pictureBox1.Top + pictureBox1.Height +10;
+				}
+            });
         }
+		
+		
+		
         bool isdown = false;
         Point loc1 = new Point(0,0);
 
