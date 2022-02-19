@@ -1,4 +1,4 @@
-﻿namespace projectimg
+namespace projectimg
 {
     partial class Form1
     {
@@ -40,7 +40,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImageLocation = "bg.jpg";
             this.pictureBox1.Location = new System.Drawing.Point(171, -14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(383, 266);
